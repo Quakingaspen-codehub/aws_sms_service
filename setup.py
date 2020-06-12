@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="athorization_manager", # Replace with your own username
-    version="0.0.2",
+    name="aws_sms_service", # Replace with your own username
+    version="0.0.1",
     author="QuakingAspen",
     author_email="info@quakingaspen.net",
-    description="A Athorization_Manager package",
+    description="aws_sms_service",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://dev.azure.com/quakingaspen/Python_Packages/_git/athorization_manager",
+    url="https://github.com/Quakingaspen-codehub/aws_sms_service",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
