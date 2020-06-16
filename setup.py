@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="aws_sms_service", # Replace with your own username
-    version="0.0.1",
+    name="aws_sms_service",
+    version="0.0.2",
     author="QuakingAspen",
     author_email="info@quakingaspen.net",
     description="aws_sms_service",
