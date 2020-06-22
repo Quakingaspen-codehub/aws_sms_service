@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="aws_sms_service",
-    version="0.0.2",
+    version="0.0.3",
     author="QuakingAspen",
     author_email="info@quakingaspen.net",
     description="aws_sms_service",
