@@ -5,7 +5,7 @@ import boto3
 
 class SMS:
     """ A class to send SMS over AWS SNS service """
-    client = boto3.client('sns')
+    client = boto3.client('sns',region_name=os.environ['region_name'])
 
     SENDER_ID_MIN_LENGTH = 1  # [char]
     SENDER_ID_MAX_LENGTH = 11  # [char]
