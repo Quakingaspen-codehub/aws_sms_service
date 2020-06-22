@@ -2,6 +2,8 @@ import re
 
 import boto3
 
+import os
+
 
 class SMS:
     """ A class to send SMS over AWS SNS service """
