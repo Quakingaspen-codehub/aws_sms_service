@@ -20,7 +20,7 @@ class SMS:
 
     PHONE_NUMBER_E_164 = '^\+?[1-9]\d{1,14}$'
 
-    def __init__(self, sender_id: str, message: str, phone_number: list, topic_name=None):
+    def __init__(self, sender_id: str, message: str, phone_number: list, topic_name=None, single_sms_limit=False):
 
         self.sender_id = None
         self.message = None
@@ -28,7 +28,7 @@ class SMS:
         self.topic_name = None
 
         self.set_sender_id(sender_id)
-        self.set_message(message)
+        self.set_message(message, single_sms_limit)
         self.set_phone_number(phone_number)
         self.set_topic_name(topic_name)
 
@@ -48,12 +48,12 @@ class SMS:
         self.sender_id = sender_id
         SMS.client.set_sms_attributes(attributes={'DefaultSenderID': self.sender_id})
 
-    def set_message(self, message):
+    def set_message(self, message, single_sms_limit):
         if type(message) is not str:
             raise Exception('message should be a string')
 
         message_len = len(message)
-        if message_len < SMS.MESSAGE_MIN_LENGTH or message_len > SMS.MESSAGE_MAX_LENGTH:
+        if single_sms_limit and (message_len < SMS.MESSAGE_MIN_LENGTH or message_len > SMS.MESSAGE_MAX_LENGTH):
             raise Exception('message should have length in the range' \
                             f'[{SMS.MESSAGE_MIN_LENGTH}, {SMS.MESSAGE_MAX_LENGTH}]' \
                             f' but the current message length is {message_len}')
