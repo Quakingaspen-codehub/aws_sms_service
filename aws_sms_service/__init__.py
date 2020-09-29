@@ -18,7 +18,7 @@ class SMS:
     TOPIC_NAME_MIN_LENGTH = 1  # [char]
     TOPIC_NAME_MAX_LENGTH = 256  # [char]
 
-    PHONE_NUMBER_E_164 = '^\+?[1-9]\d{1,14}$'
+    PHONE_NUMBER_PATTERN = '^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$'
 
     def __init__(self, sender_id: str, message: str, phone_number: list, topic_name=None, single_sms_limit=False):
 
@@ -65,8 +65,8 @@ class SMS:
             if type(number) is not str:
                 raise Exception('All phone numbers must be of string type')
 
-            if not re.match(SMS.PHONE_NUMBER_E_164, number):
-                raise Exception(f'All phone numbers must match E.164 standard (Error in {number})')
+            if not re.match(SMS.PHONE_NUMBER_PATTERN, number):
+                raise Exception(f'Invalid phone number (Error in {number})')
 
         self.phone_number = phone_number
 
